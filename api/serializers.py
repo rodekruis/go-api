@@ -137,7 +137,7 @@ class RelatedAppealSerializer(serializers.ModelSerializer):
     dtype = DisasterTypeSerializer()
     class Meta:
         model = Appeal
-        fields = ('aid', 'num_beneficiaries', 'amount_requested', 'amount_funded', 'status', 'start_date', 'id', 'name', 'dtype',)
+        fields = ('aid', 'num_beneficiaries', 'amount_requested', 'amount_funded', 'status', 'start_date', 'end_date', 'id', 'name', 'dtype', 'sector', 'atype',)
 
 class KeyFigureSerializer(serializers.ModelSerializer):
     class Meta:
