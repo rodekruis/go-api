@@ -134,9 +134,10 @@ class CountryRelationSerializer(serializers.ModelSerializer):
         fields = ('links', 'contacts', 'name', 'iso', 'society_name', 'society_url', 'region', 'overview', 'key_priorities', 'inform_score', 'id',)
 
 class RelatedAppealSerializer(serializers.ModelSerializer):
+    dtype = DisasterTypeSerializer()
     class Meta:
         model = Appeal
-        fields = ('aid', 'num_beneficiaries', 'amount_requested', 'amount_funded', 'status', 'start_date', 'id',)
+        fields = ('aid', 'num_beneficiaries', 'amount_requested', 'amount_funded', 'status', 'start_date', 'id', 'name', 'dtype',)
 
 class KeyFigureSerializer(serializers.ModelSerializer):
     class Meta:
