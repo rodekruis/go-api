@@ -1293,7 +1293,7 @@ class CronJob(models.Model):
             return '%s | %s | %s'      % (self.name, str(self.status),                       str(self.created_at)[5:16]) # omit irrelevant 0
 
     # Given a request containing new CronJob log row, validate and add the CronJob log row.
-    def sync_cron(body):
+    def sync_cron(self, body):
         new = []
         errors = []
         fields = { 'name': body['name'], 'message': body['message'] }
@@ -1338,5 +1338,60 @@ class CronJob(models.Model):
         return errors, new
 
 # To find related scripts from go-api root dir: grep -rl CronJob --exclude-dir=__pycache__ --exclude-dir=main --exclude-dir=migrations --exclude=CHANGELOG.md *
+
+
+class InformalUpdate(models.Model):
+    """ Informal Updates (similar to Field Reports) """
+    created_at = models.DateTimeField(auto_now_add=True)
+    modified_at = models.DateTimeField(auto_now=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+        related_name='informal_update_user',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL)
+    event = models.ForeignKey(Event, null=True, on_delete=models.SET_NULL)
+    title = models.CharField(max_length=200)
+    situational_overview = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return
+
+
+# class InformalUpdateCountry(models.Model):
+
+
+
+# Used below for InformalUpdateReference documents
+def informal_update_document_path(instance, filename):
+    return 'informal_updates/%s/%s' % (instance.informal_update.id, filename)
+
+
+class InformalUpdateReference(models.Model):
+    """ Relevant documents/links/etc for Informal Updates """
+    created_at = models.DateTimeField(auto_now_add=True)
+    doc_date = models.DateTimeField(null=True, blank=True)
+    reference = models.CharField(max_length=200)
+    document = models.FileField(null=True, blank=True, upload_to=informal_update_document_path, storage=AzureStorage())
+    document_url = models.URLField(blank=True)
+
+    informal_update = models.ForeignKey(InformalUpdate, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return
+
+
+class InformalUpdateActionsTaken(models.Model):
+    """ All the actions taken by an organization """
+    organization = models.CharField(
+        choices=ActionOrg.CHOICES,
+        max_length=4,
+    )
+    actions = models.ManyToManyField(Action)
+    summary = models.TextField(blank=True)
+    informal_update = models.ForeignKey(InformalUpdate, related_name='informal_update_actions_taken', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return '%s: %s' % (self.organization, self.summary)
+
 
 from .triggers import *
