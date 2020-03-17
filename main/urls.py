@@ -103,6 +103,7 @@ router.register(r'per_ns_phase', per_views.NSPhaseViewset)
 router.register(r'regional-project', deployment_views.RegionalProjectViewset)
 router.register(r'project', deployment_views.ProjectViewset)
 router.register(r'data-bank/country-overview', CountryOverviewViewSet)
+router.register(r'informal-update', api_views.InformalUpdateViewset)
 
 
 admin.site.site_header = 'IFRC Go administration'

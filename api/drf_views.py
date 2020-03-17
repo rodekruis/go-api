@@ -43,6 +43,7 @@ from .models import (
     ActionsTaken,
     Source,
     SourceType,
+    InformalUpdate,
 
     VisibilityChoices,
     RequestChoices,
@@ -81,6 +82,7 @@ from .serializers import (
     ListFieldReportSerializer,
     DetailFieldReportSerializer,
     CreateFieldReportSerializer,
+    InformalUpdateSerializer,
 )
 from .logger import logger
 
@@ -659,3 +661,13 @@ class UpdateFieldReport(UpdateAPIView, GenericFieldReportView):
                 logger.error(str(error)[:200])
 
         return Response({'id': instance.id}, status=HTTP_200_OK)
+
+
+class InformalUpdateViewset(viewsets.ReadOnlyModelViewSet):
+    #filter_class = InformalUpdateFilter #TODO: create InformalUpdateFilter
+    queryset = InformalUpdate.objects.all()
+    serializer_class = InformalUpdateSerializer
+    serializer = InformalUpdateSerializer(queryset, many=True)
+
+    def list(self, request):
+        return Response(self.serializer.data)

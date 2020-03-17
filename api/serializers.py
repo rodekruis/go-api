@@ -33,6 +33,7 @@ from .models import (
     Action,
     Source,
     FieldReport,
+    InformalUpdate,
 )
 from notifications.models import Subscription
 
@@ -326,3 +327,8 @@ class CreateFieldReportSerializer(serializers.ModelSerializer):
     class Meta:
         model = FieldReport
         fields = '__all__'
+
+class InformalUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = InformalUpdate
+        fields = '__all__' #TODO: check what fields are really needed
