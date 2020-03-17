@@ -886,6 +886,12 @@ class EmergencyOperationsEAAdmin(admin.ModelAdmin):
     export_all_ea.short_description = 'Export all documents to CSV (select one before for it to work)'
 
 
+class InformalUpdateAdmin(admin.ModelAdmin):
+    list_display = ('title', 'event',)
+    list_select_related = ('event',)
+    search_fields = ('title', 'event__name',)
+
+
 admin.site.register(models.DisasterType, DisasterTypeAdmin)
 admin.site.register(models.Event, EventAdmin)
 admin.site.register(models.GDACSEvent, GdacsAdmin)
@@ -904,5 +910,6 @@ admin.site.register(models.EmergencyOperationsPeopleReached, EmergencyOperations
 admin.site.register(models.EmergencyOperationsFR, EmergencyOperationsFRAdmin)
 admin.site.register(models.EmergencyOperationsEA, EmergencyOperationsEAAdmin)
 admin.site.register(models.CronJob, CronJobAdmin)
+admin.site.register(models.InformalUpdate, InformalUpdateAdmin)
 admin.site.site_url = 'https://' + os.environ.get('FRONTEND_URL')
 admin.widgets.RelatedFieldWidgetWrapper.template_name = 'related_widget_wrapper.html'

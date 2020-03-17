@@ -1340,6 +1340,10 @@ class CronJob(models.Model):
 # To find related scripts from go-api root dir: grep -rl CronJob --exclude-dir=__pycache__ --exclude-dir=main --exclude-dir=migrations --exclude=CHANGELOG.md *
 
 
+# Used below for InformalUpdateReference documents
+def informal_update_graphic_path(instance, filename):
+    return 'informal_updates/%s/%s' % (instance.id, filename)
+
 class InformalUpdate(models.Model):
     """ Informal Updates (similar to Field Reports) """
     created_at = models.DateTimeField(auto_now_add=True)
@@ -1349,22 +1353,29 @@ class InformalUpdate(models.Model):
         null=True,
         blank=True,
         on_delete=models.SET_NULL)
-    event = models.ForeignKey(Event, null=True, on_delete=models.SET_NULL)
+    event = models.ForeignKey(Event, related_name='informal_update', null=True, on_delete=models.SET_NULL)
     title = models.CharField(max_length=200)
     situational_overview = models.TextField(null=True, blank=True)
+    focal_point_originator_name = models.CharField(max_length=200, null=True, blank=True)
+    focal_point_originator_email = models.CharField(max_length=200, null=True, blank=True)
+    focal_point_originator_job = models.CharField(max_length=200, null=True, blank=True)
+    focal_point_originator_phone = models.CharField(max_length=100, null=True, blank=True)
+    focal_point_ifrc_name = models.CharField(max_length=200, null=True, blank=True)
+    focal_point_ifrc_email = models.CharField(max_length=300, null=True, blank=True)
+    focal_point_ifrc_job = models.CharField(max_length=200, null=True, blank=True)
+    focal_point_ifrc_phone = models.CharField(max_length=100, null=True, blank=True)
+    graphic = models.ImageField(null=True, blank=True, upload_to=informal_update_graphic_path, storage=AzureStorage())
+    countries = models.ManyToManyField(Country)
+    regions = models.ManyToManyField(Region)
 
     def __str__(self):
-        return
+        return self.title
 
-
-# class InformalUpdateCountry(models.Model):
-
-
+#TODO: InformalUpdateVisibility bridge table (or some Django magic), VisibilityChoices for IU
 
 # Used below for InformalUpdateReference documents
 def informal_update_document_path(instance, filename):
     return 'informal_updates/%s/%s' % (instance.informal_update.id, filename)
-
 
 class InformalUpdateReference(models.Model):
     """ Relevant documents/links/etc for Informal Updates """
@@ -1374,10 +1385,10 @@ class InformalUpdateReference(models.Model):
     document = models.FileField(null=True, blank=True, upload_to=informal_update_document_path, storage=AzureStorage())
     document_url = models.URLField(blank=True)
 
-    informal_update = models.ForeignKey(InformalUpdate, on_delete=models.CASCADE)
+    informal_update = models.ForeignKey(InformalUpdate, related_name='informal_update_references', on_delete=models.CASCADE)
 
     def __str__(self):
-        return
+        return reference
 
 
 class InformalUpdateActionsTaken(models.Model):
