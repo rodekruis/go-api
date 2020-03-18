@@ -9,7 +9,7 @@ from api.views import (
 from rest_framework import viewsets
 from django.contrib.auth.models import User
 from .models import (
-    Draft, Form, FormData, WorkPlan, Overview
+    Draft, Form, FormData, WorkPlan, Overview, NSPhase
 )
 from rest_framework.authtoken.models import Token
 
@@ -332,6 +332,12 @@ def create_overview(raw):
                                        )
 
     overview.save()
+
+    if raw['current_per_phase']:
+        ns_phase, created = NSPhase.objects.get_or_create(country=raw['country_id'])
+        ns_phase.phase = raw['current_per_phase']
+        ns_phase.save()
+
     return overview
 
 class OverviewSent(PublicJsonPostView):
@@ -455,6 +461,35 @@ class DelDraft(PublicJsonPostView):
             workplan = delete_draft(body['id'])
         except:
             return bad_request('Could not delete PER Draft.')
+        
+        return JsonResponse({'status': 'ok'})
+
+def set_ns_phase(country_id, phase):
+    ns_phase, created = NSPhase.objects.create(country=country_id)
+    ns_phase.phase = phase
+    ns_phase.save()
+    return ns_phase
+
+class SetPerNSPhase(PublicJsonPostView):
+    def handle_post(self, request, *args, **kwargs):
+        u = None
+        richtokenstring = request.META.get('HTTP_AUTHORIZATION')
+        if richtokenstring:
+            try:
+                receivedtoken = Token.objects.get(key=richtokenstring[6:])
+            except:
+                return bad_request('User token is not correct.')
+            u = User.objects.filter(is_active=True, pk=receivedtoken.user_id)
+        else:
+            return bad_request('User token is not given.')
+        if not u:
+            return bad_request('User is not logged in or inactive.')
+        body = json.loads(request.body.decode('utf-8'))
+
+        try:
+            ns_phase = set_ns_phase(body['country_id'], body['phase'])
+        except:
+            return bad_request('Could not set PER Phase.')
         
         return JsonResponse({'status': 'ok'})
 
