@@ -307,6 +307,32 @@ class RegionalProject(models.Model):
         return self.name
 
 
+class OrganizationalUnits(IntEnum):
+    NEPAL_RED_CROSS_HQS = 0
+    NRCS_DISTRICT_CHAPTER = 1
+    NRCS_SUB_CHAPTER = 2
+    JUNIOR_YOUTH_RED_CROSS_COMMUNITY = 3
+
+    # class Labels:
+    #     NEPAL_RED_CROSS_HQS = _('Nepal Red Cross HQS')
+    #     NRCS_DISTRICT_CHAPTER = _('NRCS District-Chapter')
+    #     NRCS_SUB_CHAPTER = _('NRCS Sub-Chapter')
+    #     JUNIOR_YOUTH_RED_CROSS_COMMUNITY = _('Junior/Youth Red Cross Community')
+
+
+class Partners(IntEnum):
+    THROUGH_NRCS_HQS = 0
+    GOVERNMENT_AGENCIES = 1
+    INGO_NGO = 2
+    OTHER = 3
+
+    # class Labels:
+    #     THROUGH_NRCS_HQS = _('Through NRCS HQS')
+    #     GOVERNMENT_AGENCIES = _('Government agencies')
+    #     INGO_NGO = _('INGO/NGO')
+    #     OTHER = _('Other')
+
+
 class Project(models.Model):
     modified_at = models.DateTimeField(verbose_name=_('modified at'), auto_now=True)
     user = models.ForeignKey(
@@ -340,18 +366,98 @@ class Project(models.Model):
     budget_amount = models.IntegerField(verbose_name=_('budget amount'), null=True, blank=True)
     actual_expenditure = models.IntegerField(verbose_name=_('actual expenditure'), null=True, blank=True)
     status = EnumIntegerField(Statuses, verbose_name=_('status'))
+    organizational_unit = EnumIntegerField(OrganizationalUnits, verbose_name=_('organizational unit'), default=0)
+    partner = EnumIntegerField(Partners, verbose_name=_('partner'), default=0)
+    activity = models.IntegerField(verbose_name=_('activity'), default=-1)
+    subactivity = models.IntegerField(verbose_name=_('subactivity'), default=-1)
+    units_measurement_metric = models.IntegerField(verbose_name=_('units measurement metric'), default=-1)
+    units_quantity = models.IntegerField(verbose_name=_('units quantity'), default=-1)
+    where_province = models.IntegerField(verbose_name=_('where province'), default=-1)
+    where_district = models.IntegerField(verbose_name=_('where district'), default=-1)
+    where_municipality = models.IntegerField(verbose_name=_('where municipality'), default=-1)
+    where_ward = models.IntegerField(verbose_name=_('where ward'), default=-1)
+    where_delivery_service_place = models.IntegerField(verbose_name=_('where delivery service place'), default=-1)
+    where_delivery_service_name = models.TextField(verbose_name=_('where delivery service name'), null=True, blank=True)
+    beneficiary_type = models.IntegerField(verbose_name=_('beneficiary type'), default=-1)
 
     # Target Metric
     target_male = models.IntegerField(verbose_name=_('target male'), null=True, blank=True)
     target_female = models.IntegerField(verbose_name=_('target female'), null=True, blank=True)
     target_other = models.IntegerField(verbose_name=_('target other'), null=True, blank=True)
     target_total = models.IntegerField(verbose_name=_('target total'), null=True, blank=True)
+    target_lgbtiq = models.IntegerField(verbose_name=_('target LGBTIQ'), null=True, blank=True)
 
     # Reached Metric
     reached_male = models.IntegerField(verbose_name=_('reached male'), null=True, blank=True)
     reached_female = models.IntegerField(verbose_name=_('reached female'), null=True, blank=True)
     reached_other = models.IntegerField(verbose_name=_('reached other'), null=True, blank=True)
     reached_total = models.IntegerField(verbose_name=_('reached total'), null=True, blank=True)
+    reached_lgbtiq = models.IntegerField(verbose_name=_('reached LGBTIQ'), null=True, blank=True)
+
+    target_lgbtiq_00_05 = models.IntegerField(verbose_name=_('target lgbtiq 00 05'), null=True, blank=True)
+    target_lgbtiq_06_12 = models.IntegerField(verbose_name=_('target lgbtiq 06 12'), null=True, blank=True)
+    target_lgbtiq_13_17 = models.IntegerField(verbose_name=_('target lgbtiq 13 17'), null=True, blank=True)
+    target_lgbtiq_18_29 = models.IntegerField(verbose_name=_('target lgbtiq 18 29'), null=True, blank=True)
+    target_lgbtiq_30_39 = models.IntegerField(verbose_name=_('target lgbtiq 30 39'), null=True, blank=True)
+    target_lgbtiq_40_49 = models.IntegerField(verbose_name=_('target lgbtiq 40 49'), null=True, blank=True)
+    target_lgbtiq_50_59 = models.IntegerField(verbose_name=_('target lgbtiq 50 59'), null=True, blank=True)
+    target_lgbtiq_60_69 = models.IntegerField(verbose_name=_('target lgbtiq 60 69'), null=True, blank=True)
+    target_lgbtiq_70_79 = models.IntegerField(verbose_name=_('target lgbtiq 70 79'), null=True, blank=True)
+    target_lgbtiq_80_plus = models.IntegerField(verbose_name=_('target lgbtiq 80 plus'), null=True, blank=True)
+    target_female_00_05 = models.IntegerField(verbose_name=_('target female 00 05'), null=True, blank=True)
+    target_female_06_12 = models.IntegerField(verbose_name=_('target female 06 12'), null=True, blank=True)
+    target_female_13_17 = models.IntegerField(verbose_name=_('target female 13 17'), null=True, blank=True)
+    target_female_18_29 = models.IntegerField(verbose_name=_('target female 18 29'), null=True, blank=True)
+    target_female_30_39 = models.IntegerField(verbose_name=_('target female 30 39'), null=True, blank=True)
+    target_female_40_49 = models.IntegerField(verbose_name=_('target female 40 49'), null=True, blank=True)
+    target_female_50_59 = models.IntegerField(verbose_name=_('target female 50 59'), null=True, blank=True)
+    target_female_60_69 = models.IntegerField(verbose_name=_('target female 60 69'), null=True, blank=True)
+    target_female_70_79 = models.IntegerField(verbose_name=_('target female 70 79'), null=True, blank=True)
+    target_female_80_plus = models.IntegerField(verbose_name=_('target female 80 plus'), null=True, blank=True)
+    target_male_00_05 = models.IntegerField(verbose_name=_('target male 00 05'), null=True, blank=True)
+    target_male_06_12 = models.IntegerField(verbose_name=_('target male 06 12'), null=True, blank=True)
+    target_male_13_17 = models.IntegerField(verbose_name=_('target male 13 17'), null=True, blank=True)
+    target_male_18_29 = models.IntegerField(verbose_name=_('target male 18 29'), null=True, blank=True)
+    target_male_30_39 = models.IntegerField(verbose_name=_('target male 30 39'), null=True, blank=True)
+    target_male_40_49 = models.IntegerField(verbose_name=_('target male 40 49'), null=True, blank=True)
+    target_male_50_59 = models.IntegerField(verbose_name=_('target male 50 59'), null=True, blank=True)
+    target_male_60_69 = models.IntegerField(verbose_name=_('target male 60 69'), null=True, blank=True)
+    target_male_70_79 = models.IntegerField(verbose_name=_('target male 70 79'), null=True, blank=True)
+    target_male_80_plus = models.IntegerField(verbose_name=_('target male 80 plus'), null=True, blank=True)
+    target_pregnant_women = models.IntegerField(verbose_name=_('target pregnant women'), null=True, blank=True)
+    target_people_with_disability = models.IntegerField(verbose_name=_('target people with disability'), null=True, blank=True)
+    reached_lgbtiq_00_05 = models.IntegerField(verbose_name=_('reached lgbtiq 00 05'), null=True, blank=True)
+    reached_lgbtiq_06_12 = models.IntegerField(verbose_name=_('reached lgbtiq 06 12'), null=True, blank=True)
+    reached_lgbtiq_13_17 = models.IntegerField(verbose_name=_('reached lgbtiq 13 17'), null=True, blank=True)
+    reached_lgbtiq_18_29 = models.IntegerField(verbose_name=_('reached lgbtiq 18 29'), null=True, blank=True)
+    reached_lgbtiq_30_39 = models.IntegerField(verbose_name=_('reached lgbtiq 30 39'), null=True, blank=True)
+    reached_lgbtiq_40_49 = models.IntegerField(verbose_name=_('reached lgbtiq 40 49'), null=True, blank=True)
+    reached_lgbtiq_50_59 = models.IntegerField(verbose_name=_('reached lgbtiq 50 59'), null=True, blank=True)
+    reached_lgbtiq_60_69 = models.IntegerField(verbose_name=_('reached lgbtiq 60 69'), null=True, blank=True)
+    reached_lgbtiq_70_79 = models.IntegerField(verbose_name=_('reached lgbtiq 70 79'), null=True, blank=True)
+    reached_lgbtiq_80_plus = models.IntegerField(verbose_name=_('reached lgbtiq 80 plus'), null=True, blank=True)
+    reached_female_00_05 = models.IntegerField(verbose_name=_('reached female 00 05'), null=True, blank=True)
+    reached_female_06_12 = models.IntegerField(verbose_name=_('reached female 06 12'), null=True, blank=True)
+    reached_female_13_17 = models.IntegerField(verbose_name=_('reached female 13 17'), null=True, blank=True)
+    reached_female_18_29 = models.IntegerField(verbose_name=_('reached female 18 29'), null=True, blank=True)
+    reached_female_30_39 = models.IntegerField(verbose_name=_('reached female 30 39'), null=True, blank=True)
+    reached_female_40_49 = models.IntegerField(verbose_name=_('reached female 40 49'), null=True, blank=True)
+    reached_female_50_59 = models.IntegerField(verbose_name=_('reached female 50 59'), null=True, blank=True)
+    reached_female_60_69 = models.IntegerField(verbose_name=_('reached female 60 69'), null=True, blank=True)
+    reached_female_70_79 = models.IntegerField(verbose_name=_('reached female 70 79'), null=True, blank=True)
+    reached_female_80_plus = models.IntegerField(verbose_name=_('reached female 80 plus'), null=True, blank=True)
+    reached_male_00_05 = models.IntegerField(verbose_name=_('reached male 00 05'), null=True, blank=True)
+    reached_male_06_12 = models.IntegerField(verbose_name=_('reached male 06 12'), null=True, blank=True)
+    reached_male_13_17 = models.IntegerField(verbose_name=_('reached male 13 17'), null=True, blank=True)
+    reached_male_18_29 = models.IntegerField(verbose_name=_('reached male 18 29'), null=True, blank=True)
+    reached_male_30_39 = models.IntegerField(verbose_name=_('reached male 30 39'), null=True, blank=True)
+    reached_male_40_49 = models.IntegerField(verbose_name=_('reached male 40 49'), null=True, blank=True)
+    reached_male_50_59 = models.IntegerField(verbose_name=_('reached male 50 59'), null=True, blank=True)
+    reached_male_60_69 = models.IntegerField(verbose_name=_('reached male 60 69'), null=True, blank=True)
+    reached_male_70_79 = models.IntegerField(verbose_name=_('reached male 70 79'), null=True, blank=True)
+    reached_male_80_plus = models.IntegerField(verbose_name=_('reached male 80 plus'), null=True, blank=True)
+    reached_pregnant_women = models.IntegerField(verbose_name=_('reached pregnant women'), null=True, blank=True)
+    reached_people_with_disability = models.IntegerField(verbose_name=_('reached people with disability'), null=True, blank=True)
 
     regional_project = models.ForeignKey(
         RegionalProject, verbose_name=_('regional project'), null=True, blank=True, on_delete=models.SET_NULL
