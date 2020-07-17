@@ -313,12 +313,6 @@ class OrganizationalUnits(IntEnum):
     NRCS_SUB_CHAPTER = 2
     JUNIOR_YOUTH_RED_CROSS_COMMUNITY = 3
 
-    # class Labels:
-    #     NEPAL_RED_CROSS_HQS = _('Nepal Red Cross HQS')
-    #     NRCS_DISTRICT_CHAPTER = _('NRCS District-Chapter')
-    #     NRCS_SUB_CHAPTER = _('NRCS Sub-Chapter')
-    #     JUNIOR_YOUTH_RED_CROSS_COMMUNITY = _('Junior/Youth Red Cross Community')
-
 
 class Partners(IntEnum):
     THROUGH_NRCS_HQS = 0
@@ -326,11 +320,309 @@ class Partners(IntEnum):
     INGO_NGO = 2
     OTHER = 3
 
-    # class Labels:
-    #     THROUGH_NRCS_HQS = _('Through NRCS HQS')
-    #     GOVERNMENT_AGENCIES = _('Government agencies')
-    #     INGO_NGO = _('INGO/NGO')
-    #     OTHER = _('Other')
+
+class Activities(IntEnum):
+    CONDUCT_TRAINING_ORIENTATION_ON_COVID_19_PPE_AND_IPC_MEASURE = 0
+    BLOOD_DONATION_CAMPAIGN = 1
+    ESTABLISH_HEALTH_HELP_DESK = 2
+    DISTRIBUTE_PERSONAL_PROTECTIVE_EQUIPMENT_TO_COVID_19_RESPONDERS = 3
+    SUPPORT_MEDICAL_EQUIPMENT_AND_MATERIALS = 4
+    PROVIDE_PSYCHOSOCIAL_SUPPORT_PSS_TRAINING_ORIENTATION = 5
+    UPGRADE_THE_SERVICE_OF_AMBULANCE = 6
+    PROVIDE_PSYCHOSOCIAL_FIRST_AID_PFA_TRAINING_ORIENTATION = 7
+    CONDUCT_COVID_19_AWARENESS_ACTIVITIES_FOR_COMMUNITY_RISK_COMMUNICATION = 8
+    CONDUCT_EPIDEMIC_CONTROL_FOR_VOLUNTEERS_ECV_TRAINING_ORIENTATION_AND_MOBILIZATION = 9
+    SETUP_OF_TEMPORARY_QUARANTINE_SPACE = 10
+    TRAINING_TO_NRCS_STAFF_AND_VOLUNTEERS_ON_COMMUNITY_BASED_SURVEILLANCE_CONTACT_TRACING = 11
+    BROADCAST_RADIO_PROGRAMS_AND_PUBLIC_SERVICE_ANNOUNCEMENT = 12
+    COVID_19_PREPAREDNESS_AND_RESPONSE_OPERATION_ASSESSMENT_SURVEYS_EVALUATION = 13
+    CONSTRUCTION_REPAIR_AND_MAINTENANCE_ACTIVITY = 14
+    DEMONSTRATION_ON_HAND_WASHING_ACTIVITY = 15
+    DISTRIBUTE_WASH_MATERIALS = 16
+    DISTRIBUTE_INFORMATION_EDUCATION_COMMUNICATION_MATERIALS = 17
+    PROVIDE_NON_FOOD_ITEMS_TO_THE_FAMILIES_MOST_AFFECTED_BY_COVID_19 = 18
+    PROVIDE_SHELTER_AND_NON_FOOD_RELIEF_ITEMS_TO_THE_FAMILIES_PEOPLE_AFFECTED_BY_COVID_19 = 19
+    STAFF_AND_VOLUNTEER_MOBILIZATION_IN_COVID_19_PREPAREDNESS_AND_RESPONSE_OPERATION_FOR_ALL_SECTORS = 20
+    SUPPORT_TO_ESTABLISH_UPGRADE_EXPAND_QUARANTINE_FACILITIES_IN_KIND_AND_CASH_SUPPORT_AS_PER_LOCAL_NEED_AND_CONTEXT = 21
+    GULFARAZ = 22
+
+
+class Subactivities(IntEnum):
+    TRAINING = 0
+    ORIENTATION = 1
+    DONATION_CAMPAIGN = 2
+    DOOR_TO_DOOR_BLOOD_COLLECTION_MECHANISM = 3
+    HEALTH_DESK = 4
+    HELP_DESK = 5
+    FULL_BODY_PPE_SET = 6
+    FULL_BODY_APRON = 7
+    MASK = 8
+    N95_MASK = 9
+    DISPOSABLE_EXAMINATION_GLOVES = 10
+    GOGGLES_FACE_SHIELD = 11
+    RUBBER_BOOT_LONG_TUBE_RUBBER_SHOE = 12
+    SHOES_WITH_COVER = 13
+    HEAD_COVER = 14
+    OTHER = 15
+    FIRST_AID_KIT = 16
+    PSS_KIT = 17
+    EMERGENCY_KIT = 18
+    INFRARED_THERMOMETER = 19
+    VENTILATOR = 20
+    LIQUID_HAND_WASHING_SOAP_WITH_PUMP = 21
+    HAND_SANITIZER = 22
+    DISINFECT_SOLUTIONS_HYDROCHLORIDE = 23
+    DISINFECT_SPRAYER = 24
+    PSYCHOSOCIAL_SUPPORT_ORIENTATION = 25
+    PSYCHOSOCIAL_SUPPORT_TRAINING = 26
+    MATERIAL_SUPPORT = 27
+    COMPARTMENT_DIVISION = 28
+    PSYCHOSOCIAL_FIRST_AID_TRAINING = 29
+    PSYCHOSOCIAL_FIRST_AID_ORIENTATION = 30
+    MIKING = 31
+    RALLY = 32
+    STREET_DRAMA = 33
+    DOOR_TO_DOOR_VISIT = 34
+    MOBILIZATION = 35
+    BLOOD_BANK_EMPLOYEE = 36
+    NRCS_EMPLOYEE = 37
+    COVID_19_RELATED_NRCS_RADIO_PROGRAM = 38
+    EVALUATION = 39
+    CONSTRUCTION_OF_HAND_WASHING_STATION = 40
+    WATER_SUPPLY_CONNECTION = 41
+    DEMONSTRATION_ON_HAND_WASHING = 42
+    SOAP = 43
+    BUCKET = 44
+    HYGIENE_KIT = 45
+    MUG = 46
+    LEAFLET_PAMPHLETS_HEALTH = 47
+    BLANKETS = 48
+    TARPAULIN = 49
+    BLANKET = 50
+    KITCHEN_SET = 51
+    VOLUNTEER = 52
+    STAFF = 53
+    IN_KIND_SUPPORT_MATERIALS = 54
+
+
+class UnitsMeasurementMetric(IntEnum):
+    EVENT = 0
+    UNIT = 1
+    PIECE = 2
+    NUMBER = 3
+    LUMP_SUM = 4
+
+
+class Provinces(IntEnum):
+    PROVINCE_1 = 0
+    PROVINCE_2 = 1
+    BAGMATI = 2
+    GANDAKI = 3
+    PROVINCE_5 = 4
+    KARNALI = 5
+    SUDURPASCHIM = 6
+
+
+class Districts(IntEnum):
+    BHOJPUR = 0
+    DHANKUTA = 1
+    ILAM = 2
+    JHAPA = 3
+    KHOTANG = 4
+    MORANG = 5
+    OKHALDHUNGA = 6
+    PANCHTHAR = 7
+    SANKHUWASABHA = 8
+    SOLUKHUMBU = 9
+    SUNSARI = 10
+    TAPLEJUNG = 11
+    TERHATHUM = 12
+    UDAYAPUR = 13
+    BARA = 14
+    DHANUSHA = 15
+    BHAKTAPUR = 16
+    CHITAWAN = 17
+    DHADING = 18
+    DOLAKHA = 19
+    KATHMANDU = 20
+    KAVREPALANCHOK = 21
+    LALITPUR = 22
+    MAKAWANPUR = 23
+    NUWAKOT = 24
+    RAMECHHAP = 25
+    RASUWA = 26
+    SINDHULI = 27
+    SINDHUPALCHOK = 28
+    BAGLUNG = 29
+    GORKHA = 30
+    ARGHAKHANCHI = 31
+    BANKE = 32
+    DAILEKH = 33
+    DOLPA = 34
+    ACHHAM = 35
+    BAITADI = 36
+
+
+class Municipalities(IntEnum):
+    AAMCHOWK = 0
+    ARUN = 1
+    BHOJPUR = 2
+    HATUWAGADHI = 3
+    PAUWADUNGMA = 4
+    RAMPRASAD_RAI = 5
+    SALPASILICHHO = 6
+    SHADANANDA = 7
+    TEMKEMAIYUNG = 8
+    CHAUBISE = 9
+    CHHATHAR_JORPATI = 10
+    DHANKUTA = 11
+    MAHALAXMI = 12
+    PAKHRIBAS = 13
+    SAHIDBHUMI = 14
+    SANGURIGADHI = 15
+    CHULACHULI = 16
+    DEUMAI = 17
+    FAKPHOKTHUM = 18
+    ILLAM = 19
+    MAI = 20
+    MAIJOGMAI = 21
+    MANGSEBUNG = 22
+    RONG = 23
+    SANDAKPUR = 24
+    SURYODAYA = 25
+    ARJUNDHARA = 26
+    BARHADASHI = 27
+    BHADRAPUR = 28
+    BIRTAMOD = 29
+    BUDDHASHANTI = 30
+    DAMAK = 31
+    GAURADHAHA = 32
+    GAURIGANJ = 33
+    HALDIBARI = 34
+    JHAPA = 35
+    KAMAL = 36
+    KANKAI = 37
+    MECHINAGAR = 38
+    SHIVASATAXI = 39
+    KACHANKAWAL = 40
+    FALELUNG = 41
+    FALGUNANDA = 42
+    HILIHANG = 43
+    KUMMAYAK = 44
+    MIKLAJUNG = 45
+    PHIDIM = 46
+    TUMBEWA = 47
+    YANGWARAK = 48
+    KHUMBUPASANGLAHMU = 49
+    LIKHUPIKE = 50
+    MAHAKULUNG = 51
+    MAPYADUDHKOSHI = 52
+    NECHASALYAN = 53
+    SOLUDUDHAKUNDA = 54
+    SOTANG = 55
+    THULUNG_DUDHKOSHI = 56
+    AATHRAI_TRIBENI = 57
+    MAIWAKHOLA = 58
+    MERINGDEN = 59
+    MIKWAKHOLA = 60
+    PATHIVARA_YANGWARAK = 61
+    PHAKTANGLUNG = 62
+    PHUNGLING = 63
+    SIDINGBA = 64
+    SIRIJANGHA = 65
+    AAURAHI = 66
+    BATESHWOR = 67
+    BHAKTAPUR = 68
+    CHANGUNARAYAN = 69
+    MADHYAPUR_THIMI = 70
+    SURYABINAYAK = 71
+    BHARATPUR = 72
+    ICHCHHYAKAMANA = 73
+    BENIGHAT_RORANG = 74
+    DHUNIBESI = 75
+    GAJURI = 76
+    GALCHI = 77
+    GANGAJAMUNA = 78
+    JWALAMUKHI = 79
+    KHANIYABASH = 80
+    NETRAWATI = 81
+    NILAKANTHA = 82
+    RUBI_VALLEY = 83
+    SIDDHALEK = 84
+    THAKRE = 85
+    TRIPURA_SUNDARI = 86
+    BELKOTGADHI = 87
+    BIDUR = 88
+    DUPCHESHWAR = 89
+    KAKANI = 90
+    KISPANG = 91
+    LIKHU = 92
+    MEGHANG = 93
+    PANCHAKANYA = 94
+    SHIVAPURI = 95
+    SURYAGADHI = 96
+    TADI = 97
+    TARKESHWAR = 98
+    GOSAIKUNDA = 99
+    KALIKA = 100
+    NAUKUNDA = 101
+    PARBATI_KUNDA = 102
+    UTTARGAYA = 103
+    DUDHOULI = 104
+    GHANGLEKH = 105
+    GOLANJOR = 106
+    HARIHARPURGADHI = 107
+    KAMALAMAI = 108
+    MARIN = 109
+    PHIKKAL = 110
+    SUNKOSHI = 111
+    TINPATAN = 112
+    BADIGAD = 113
+    BAGLUNG = 114
+    AARUGHAT = 115
+    AJIRKOT = 116
+    BHUMEKASTHAN = 117
+    CHHATRADEV = 118
+    BAIJANATH = 119
+    DUDUWA = 120
+    AATHABIS = 121
+    BHAGAWATIMAI = 122
+    CHHARKA_TANGSONG = 123
+    DOLPO_BUDDHA = 124
+    BANNIGADHI_JAYAGADH = 125
+    CHAURPATI = 126
+    DASHARATHCHANDA = 127
+    DILASAINI = 128
+
+
+class DeliveryServicePlaces(IntEnum):
+    COMMUNITY = 0
+    INSTITUTION = 1
+    QUARANTINE_SITE = 2
+    PORT_OF_ENTRY = 3
+    HOLDING_CENTER = 4
+    ISOLATION_CENTER = 5
+    OFFICE = 6
+    ORGANIZATION = 7
+    HEALTH_SERVICE_CENTER = 8
+    BLOOD_TRANSFUSION_SERVICE = 9
+    EYE_CARE_CENTER = 10
+    AMBULANCE_SERVICE = 11
+    HEALTH_HELP_DESK_SERVICE = 12
+    CENTRAL_WAREHOUSE = 13
+    REGIONAL_WAREHOUSE = 14
+    SUB_REGIONAL_WAREHOUSE = 15
+    OTHER = 16
+
+
+class BeneficiaryTypes(IntEnum):
+    INDIVIDUAL = 0
+    HOUSEHOLD = 1
+    NRCS_VOLUNTEER = 2
+    NRCS_EMPLOYEE = 3
+    OTHER_VOLUNTEER = 4
+    GOVERNMENT_STAFF = 5
+    OTHER = 6
 
 
 class Project(models.Model):
@@ -368,17 +660,17 @@ class Project(models.Model):
     status = EnumIntegerField(Statuses, verbose_name=_('status'))
     organizational_unit = EnumIntegerField(OrganizationalUnits, verbose_name=_('organizational unit'), default=0)
     partner = EnumIntegerField(Partners, verbose_name=_('partner'), default=0)
-    activity = models.IntegerField(verbose_name=_('activity'), default=-1)
-    subactivity = models.IntegerField(verbose_name=_('subactivity'), default=-1)
-    units_measurement_metric = models.IntegerField(verbose_name=_('units measurement metric'), default=-1)
+    activity = EnumIntegerField(Activities, verbose_name=_('activity'), default=0)
+    subactivity = EnumIntegerField(Subactivities, verbose_name=_('subactivity'), default=0)
+    units_measurement_metric = EnumIntegerField(UnitsMeasurementMetric, verbose_name=_('units measurement metric'), default=0)
     units_quantity = models.IntegerField(verbose_name=_('units quantity'), default=-1)
-    where_province = models.IntegerField(verbose_name=_('where province'), default=-1)
-    where_district = models.IntegerField(verbose_name=_('where district'), default=-1)
-    where_municipality = models.IntegerField(verbose_name=_('where municipality'), null=True, blank=True)
+    where_province = EnumIntegerField(Provinces, verbose_name=_('where province'), default=0)
+    where_district = EnumIntegerField(Districts, verbose_name=_('where district'), default=0)
+    where_municipality = EnumIntegerField(Municipalities, verbose_name=_('where municipality'), default=0)
     where_ward = models.IntegerField(verbose_name=_('where ward'), null=True, blank=True)
-    where_delivery_service_place = models.IntegerField(verbose_name=_('where delivery service place'), default=-1)
+    where_delivery_service_place = EnumIntegerField(DeliveryServicePlaces, verbose_name=_('where delivery service place'), default=0)
     where_delivery_service_name = models.TextField(verbose_name=_('where delivery service name'), null=True, blank=True)
-    beneficiary_type = models.IntegerField(verbose_name=_('beneficiary type'), default=-1)
+    beneficiary_type = EnumIntegerField(BeneficiaryTypes, verbose_name=_('beneficiary type'), default=0)
 
     # Target Metric
     target_male = models.IntegerField(verbose_name=_('target male'), null=True, blank=True)
