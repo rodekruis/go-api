@@ -665,7 +665,7 @@ class Project(models.Model):
     units_quantity = models.IntegerField(verbose_name=_('units quantity'), default=-1)
     where_province = EnumIntegerField(Provinces, verbose_name=_('where province'), default=0)
     where_district = EnumIntegerField(Districts, verbose_name=_('where district'), default=0)
-    where_municipality = EnumIntegerField(Municipalities, verbose_name=_('where municipality'), default=0)
+    where_municipality = EnumIntegerField(Municipalities, verbose_name=_('where municipality'), null=True, blank=True)
     where_ward = models.IntegerField(verbose_name=_('where ward'), null=True, blank=True)
     where_delivery_service_place = EnumIntegerField(DeliveryServicePlaces, verbose_name=_('where delivery service place'), default=0)
     where_delivery_service_name = models.TextField(verbose_name=_('where delivery service name'), null=True, blank=True)
