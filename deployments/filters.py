@@ -10,6 +10,15 @@ from .models import (
     SectorTags,
     Statuses,
     Project,
+    OrganizationalUnits,
+    Partners,
+    Activities,
+    Subactivities,
+    Provinces,
+    Districts,
+    Municipalities,
+    DeliveryServicePlaces,
+    BeneficiaryTypes,
 )
 
 
@@ -25,6 +34,16 @@ class ProjectFilter(filters.FilterSet):
         choices=SectorTags.choices(), widget=filters.widgets.CSVWidget, method='filter_secondary_sectors',
     )
     status = filters.MultipleChoiceFilter(choices=Statuses.choices(), widget=filters.widgets.CSVWidget)
+
+    organizational_unit = filters.MultipleChoiceFilter(choices=OrganizationalUnits.choices(), widget=filters.widgets.CSVWidget)
+    partner = filters.MultipleChoiceFilter(choices=Partners.choices(), widget=filters.widgets.CSVWidget)
+    activity = filters.MultipleChoiceFilter(choices=Activities.choices(), widget=filters.widgets.CSVWidget)
+    subactivity = filters.MultipleChoiceFilter(choices=Subactivities.choices(), widget=filters.widgets.CSVWidget)
+    where_province = filters.MultipleChoiceFilter(choices=Provinces.choices(), widget=filters.widgets.CSVWidget)
+    where_district = filters.MultipleChoiceFilter(choices=Districts.choices(), widget=filters.widgets.CSVWidget)
+    where_municipality = filters.MultipleChoiceFilter(choices=Municipalities.choices(), widget=filters.widgets.CSVWidget)
+    where_delivery_service_place = filters.MultipleChoiceFilter(choices=DeliveryServicePlaces.choices(), widget=filters.widgets.CSVWidget)
+    beneficiary_type = filters.MultipleChoiceFilter(choices=BeneficiaryTypes.choices(), widget=filters.widgets.CSVWidget)
 
     # Supporting/Receiving NS Filters (Multiselect)
     reporting_ns = filters.ModelMultipleChoiceFilter(queryset=Country.objects.all(), widget=filters.widgets.CSVWidget)
@@ -87,4 +106,13 @@ class ProjectFilter(filters.FilterSet):
             'primary_sector',
             'operation_type',
             'exclude_within',
+            'organizational_unit',
+            'partner',
+            'activity',
+            'subactivity',
+            'where_province',
+            'where_district',
+            'where_municipality',
+            'where_delivery_service_place',
+            'beneficiary_type',
         ]
