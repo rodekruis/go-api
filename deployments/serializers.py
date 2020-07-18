@@ -116,7 +116,7 @@ class ProjectSerializer(TranslatedModelSerializerMixin, EnumSupportSerializerMix
     where_district_display = serializers.CharField(source='get_where_district_display', read_only=True)
     where_municipality_display = serializers.CharField(source='get_where_municipality_display', read_only=True)
     where_delivery_service_place = serializers.CharField(source='get_where_delivery_service_place_display', read_only=True)
-    beneficiary_type_place = serializers.CharField(source='get_beneficiary_type_display', read_only=True)
+    beneficiary_type = serializers.CharField(source='get_beneficiary_type_display', read_only=True)
     status_display = serializers.CharField(source='get_status_display', read_only=True)
     secondary_sectors_display = serializers.ListField(source='get_secondary_sectors_display', read_only=True)
 
