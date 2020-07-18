@@ -277,12 +277,24 @@ class OrganizationalUnits(IntEnum):
     NRCS_SUB_CHAPTER = 2
     JUNIOR_YOUTH_RED_CROSS_COMMUNITY = 3
 
+    class Labels:
+        NEPAL_RED_CROSS_HQS = _('Nepal Red Cross HQS')
+        NRCS_DISTRICT_CHAPTER = _('NRCS District-Chapter')
+        NRCS_SUB_CHAPTER = _('NRCS Sub-Chapter')
+        JUNIOR_YOUTH_RED_CROSS_COMMUNITY = _('Junior/Youth Red Cross Community')
+
 
 class Partners(IntEnum):
     THROUGH_NRCS_HQS = 0
     GOVERNMENT_AGENCIES = 1
     INGO_NGO = 2
     OTHER = 3
+
+    class Labels:
+        THROUGH_NRCS_HQS = _('Through NRCS HQS')
+        GOVERNMENT_AGENCIES = _('Government Agencies')
+        INGO_NGO = _('INGO/NGO')
+        OTHER = _('Other')
 
 
 class Activities(IntEnum):
@@ -308,6 +320,30 @@ class Activities(IntEnum):
     PROVIDE_SHELTER_AND_NON_FOOD_RELIEF_ITEMS_TO_THE_FAMILIES_PEOPLE_AFFECTED_BY_COVID_19 = 19
     STAFF_AND_VOLUNTEER_MOBILIZATION_IN_COVID_19_PREPAREDNESS_AND_RESPONSE_OPERATION_FOR_ALL_SECTORS = 20
     SUPPORT_TO_ESTABLISH_UPGRADE_EXPAND_QUARANTINE_FACILITIES_IN_KIND_AND_CASH_SUPPORT_AS_PER_LOCAL_NEED_AND_CONTEXT = 21
+
+    class Labels:
+        CONDUCT_TRAINING_ORIENTATION_ON_COVID_19_PPE_AND_IPC_MEASURE = _('Conduct training/orientation on COVID-19 / PPE and IPC measure')
+        BLOOD_DONATION_CAMPAIGN = _('Blood donation campaign')
+        ESTABLISH_HEALTH_HELP_DESK = _('Establish health/help desk')
+        DISTRIBUTE_PERSONAL_PROTECTIVE_EQUIPMENT_TO_COVID_19_RESPONDERS = _('Distribute personal protective equipment to COVID-19 responders')
+        SUPPORT_MEDICAL_EQUIPMENT_AND_MATERIALS = _('Support medical equipment and materials')
+        PROVIDE_PSYCHOSOCIAL_SUPPORT_PSS_TRAINING_ORIENTATION = _('Provide psychosocial support(PSS) training/orientation')
+        UPGRADE_THE_SERVICE_OF_AMBULANCE = _('Upgrade the service of Ambulance')
+        PROVIDE_PSYCHOSOCIAL_FIRST_AID_PFA_TRAINING_ORIENTATION = _('Provide psychosocial first aid (PFA)training/orientation')
+        CONDUCT_COVID_19_AWARENESS_ACTIVITIES_FOR_COMMUNITY_RISK_COMMUNICATION = _('Conduct COVID-19  awareness activities for community (risk communication)')
+        CONDUCT_EPIDEMIC_CONTROL_FOR_VOLUNTEERS_ECV_TRAINING_ORIENTATION_AND_MOBILIZATION = _('Conduct Epidemic Control for Volunteers (ECV) training, orientation and mobilization')
+        SETUP_OF_TEMPORARY_QUARANTINE_SPACE = _('Setup of temporary quarantine space')
+        TRAINING_TO_NRCS_STAFF_AND_VOLUNTEERS_ON_COMMUNITY_BASED_SURVEILLANCE_CONTACT_TRACING = _('Training to NRCS staff and volunteers on community based surveillance, contact tracing')
+        BROADCAST_RADIO_PROGRAMS_AND_PUBLIC_SERVICE_ANNOUNCEMENT = _('Broadcast radio programs and Public Service Announcement')
+        COVID_19_PREPAREDNESS_AND_RESPONSE_OPERATION_ASSESSMENT_SURVEYS_EVALUATION = _('COVID-19 preparedness and response operation assessment, surveys, evaluation')
+        CONSTRUCTION_REPAIR_AND_MAINTENANCE_ACTIVITY = _('Construction, repair and maintenance activity')
+        DEMONSTRATION_ON_HAND_WASHING_ACTIVITY = _('Demonstration on hand washing activity')
+        DISTRIBUTE_WASH_MATERIALS = _('Distribute WASH materials')
+        DISTRIBUTE_INFORMATION_EDUCATION_COMMUNICATION_MATERIALS = _('Distribute information,education,communication materials')
+        PROVIDE_NON_FOOD_ITEMS_TO_THE_FAMILIES_MOST_AFFECTED_BY_COVID_19 = _('Provide non-food items to the families most affected by COVID-19')
+        PROVIDE_SHELTER_AND_NON_FOOD_RELIEF_ITEMS_TO_THE_FAMILIES_PEOPLE_AFFECTED_BY_COVID_19 = _('Provide shelter and non-food relief items to the families /people  affected by COVID-19')
+        STAFF_AND_VOLUNTEER_MOBILIZATION_IN_COVID_19_PREPAREDNESS_AND_RESPONSE_OPERATION_FOR_ALL_SECTORS = _('Staff and volunteer mobilization in COVID-19 preparedness and response operation (for all sectors)')
+        SUPPORT_TO_ESTABLISH_UPGRADE_EXPAND_QUARANTINE_FACILITIES_IN_KIND_AND_CASH_SUPPORT_AS_PER_LOCAL_NEED_AND_CONTEXT = _('Support to establish/upgrade/expand quarantine facilities (in-kind and cash support as per local need and context)')
 
 
 class Subactivities(IntEnum):
@@ -366,6 +402,63 @@ class Subactivities(IntEnum):
     VOLUNTEER = 52
     STAFF = 53
     IN_KIND_SUPPORT_MATERIALS = 54
+
+    class Labels:
+        TRAINING = _('Training')
+        ORIENTATION = _('Orientation')
+        DONATION_CAMPAIGN = _('Donation Campaign')
+        DOOR_TO_DOOR_BLOOD_COLLECTION_MECHANISM = _('Door to door blood collection mechanism')
+        HEALTH_DESK = _('Health Desk')
+        HELP_DESK = _('Help Desk')
+        FULL_BODY_PPE_SET = _('Full Body PPE Set')
+        FULL_BODY_APRON = _('Full Body Apron')
+        MASK = _('Mask')
+        N95_MASK = _('N95 Mask')
+        DISPOSABLE_EXAMINATION_GLOVES = _('Disposable/examination gloves')
+        GOGGLES_FACE_SHIELD = _('Goggles/face shield')
+        RUBBER_BOOT_LONG_TUBE_RUBBER_SHOE = _('Rubber boot (Long tube rubber shoe)')
+        SHOES_WITH_COVER = _('Shoes with cover')
+        HEAD_COVER = _('Head cover')
+        OTHER = _('Other')
+        FIRST_AID_KIT = _('First aid kit')
+        PSS_KIT = _('PSS kit')
+        EMERGENCY_KIT = _('Emergency Kit')
+        INFRARED_THERMOMETER = _('Infrared thermometer')
+        VENTILATOR = _('Ventilator')
+        LIQUID_HAND_WASHING_SOAP_WITH_PUMP = _('Liquid hand washing soap with pump')
+        HAND_SANITIZER = _('Hand Sanitizer')
+        DISINFECT_SOLUTIONS_HYDROCHLORIDE = _('Disinfect solutions Hydrochloride')
+        DISINFECT_SPRAYER = _('Disinfect sprayer')
+        PSYCHOSOCIAL_SUPPORT_ORIENTATION = _('Psychosocial support orientation')
+        PSYCHOSOCIAL_SUPPORT_TRAINING = _('Psychosocial support training')
+        MATERIAL_SUPPORT = _('Material support')
+        COMPARTMENT_DIVISION = _('Compartment division')
+        PSYCHOSOCIAL_FIRST_AID_TRAINING = _('Psychosocial first aid training')
+        PSYCHOSOCIAL_FIRST_AID_ORIENTATION = _('Psychosocial first aid orientation')
+        MIKING = _('Miking')
+        RALLY = _('Rally')
+        STREET_DRAMA = _('Street Drama')
+        DOOR_TO_DOOR_VISIT = _('Door to door visit')
+        MOBILIZATION = _('Mobilization')
+        BLOOD_BANK_EMPLOYEE = _('Blood bank employee')
+        NRCS_EMPLOYEE = _('NRCS employee')
+        COVID_19_RELATED_NRCS_RADIO_PROGRAM = _('COVID-19 related NRCS radio program')
+        EVALUATION = _('Evaluation')
+        CONSTRUCTION_OF_HAND_WASHING_STATION = _('Construction of hand washing station')
+        WATER_SUPPLY_CONNECTION = _('Water supply connection')
+        DEMONSTRATION_ON_HAND_WASHING = _('Demonstration on hand washing')
+        SOAP = _('Soap')
+        BUCKET = _('Bucket')
+        HYGIENE_KIT = _('Hygiene Kit')
+        MUG = _('Mug')
+        LEAFLET_PAMPHLETS_HEALTH = _('Leaflet/Pamphlets(Health)')
+        BLANKETS = _('Blankets')
+        TARPAULIN = _('Tarpaulin')
+        BLANKET = _('Blanket')
+        KITCHEN_SET = _('Kitchen Set')
+        VOLUNTEER = _('Volunteer')
+        STAFF = _('Staff')
+        IN_KIND_SUPPORT_MATERIALS = _('In- kind support (materials)')
 
 
 class UnitsMeasurementMetric(IntEnum):
@@ -577,6 +670,25 @@ class DeliveryServicePlaces(IntEnum):
     SUB_REGIONAL_WAREHOUSE = 15
     OTHER = 16
 
+    class Labels:
+        COMMUNITY = _('Community')
+        INSTITUTION = _('Institution')
+        QUARANTINE_SITE = _('Quarantine Site')
+        PORT_OF_ENTRY = _('Port of Entry')
+        HOLDING_CENTER = _('Holding Center')
+        ISOLATION_CENTER = _('Isolation Center')
+        OFFICE = _('Office')
+        ORGANIZATION = _('Organization')
+        HEALTH_SERVICE_CENTER = _('Health Service Center')
+        BLOOD_TRANSFUSION_SERVICE = _('Blood Transfusion Service')
+        EYE_CARE_CENTER = _('Eye Care Center')
+        AMBULANCE_SERVICE = _('Ambulance Service')
+        HEALTH_HELP_DESK_SERVICE = _('Health/Help-desk Service')
+        CENTRAL_WAREHOUSE = _('Central Warehouse')
+        REGIONAL_WAREHOUSE = _('Regional Warehouse')
+        SUB_REGIONAL_WAREHOUSE = _('Sub-Regional Warehouse')
+        OTHER = _('Other')
+
 
 class BeneficiaryTypes(IntEnum):
     INDIVIDUAL = 0
@@ -586,6 +698,15 @@ class BeneficiaryTypes(IntEnum):
     OTHER_VOLUNTEER = 4
     GOVERNMENT_STAFF = 5
     OTHER = 6
+
+    class Labels:
+        INDIVIDUAL = _('Individual')
+        HOUSEHOLD = _('Household')
+        NRCS_VOLUNTEER = _('NRCS Volunteer')
+        NRCS_EMPLOYEE = _('NRCS Employee')
+        OTHER_VOLUNTEER = _('Other Volunteer')
+        GOVERNMENT_STAFF = _('Government Staff')
+        OTHER = _('Other')
 
 
 class Project(models.Model):
