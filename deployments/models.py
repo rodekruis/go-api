@@ -215,63 +215,27 @@ class ProgrammeTypes(IntEnum):
 
 
 class Sectors(IntEnum):
-    WASH = 0
-    PGI = 1
-    CEA = 2
-    MIGRATION = 3
-    HEALTH = 4
-    DRR = 5
-    SHELTER = 6
-    NS_STRENGTHENING = 7
-    EDUCATION = 8
-    LIVELIHOODS_AND_BASIC_NEEDS = 9
-
-    class Labels:
-        WASH = _('WASH')
-        PGI = _('PGI')
-        CEA = _('CEA')
-        MIGRATION = _('Migration')
-        HEALTH = _('Health')
-        DRR = _('DRR')
-        SHELTER = _('Shelter')
-        NS_STRENGTHENING = _('NS Strengthening')
-        EDUCATION = _('Education')
-        LIVELIHOODS_AND_BASIC_NEEDS = _('Livelihoods and basic needs')
+    HEALTH_AND_CARE = 0
+    WATER_SANITATION_AND_HYGIENE_PROMOTION = 1
+    RISK_COMMUNICATION_AND_COMMUNITY_ENGAGEMENT_AND_ACCOUNTABILITY = 2
+    PROTECTION_GENDER_AND_INCLUSION = 3
+    SHELTER = 4
+    PLANNING_MONITORING_EVALUATION_REPORTING_AND_INFORMATION_MANAGEMENT = 5
+    NATIONAL_SOCIETY_DEVELOPMENT = 6
+    LOGISTICS_AND_INFORMATION_TECHNOLOGY = 7
+    HUMAN_RESOURCES_AND_DUTY_OF_CARE = 8
 
 
 class SectorTags(IntEnum):
-    WASH = 0
-    PGI = 1
-    CEA = 2
-    MIGRATION = 3
-    DRR = 5
-    SHELTER = 6
-    NS_STRENGTHENING = 7
-    EDUCATION = 8
-    LIVELIHOODS_AND_BASIC_NEEDS = 9
-    RECOVERY = 10
-    INTERNAL_DISPLACEMENT = 11
-    HEALTH_PUBLIC = 4
-    HEALTH_CLINICAL = 12
-    COVID_19 = 13
-    RCCE = 14
-
-    class Labels:
-        WASH = _('WASH')
-        PGI = _('PGI')
-        CEA = _('CEA')
-        MIGRATION = _('Migration')
-        DRR = _('DRR')
-        SHELTER = _('Shelter')
-        NS_STRENGTHENING = _('NS Strengthening')
-        EDUCATION = _('Education')
-        LIVELIHOODS_AND_BASIC_NEEDS = _('Livelihoods and basic needs')
-        RECOVERY = _('Recovery')
-        INTERNAL_DISPLACEMENT = _('Internal displacement')
-        HEALTH_PUBLIC = _('Health (public)')
-        HEALTH_CLINICAL = _('Health (clinical)')
-        COVID_19 = _('COVID-19')
-        RCCE = _('RCCE')
+    HEALTH_AND_CARE = 0
+    WATER_SANITATION_AND_HYGIENE_PROMOTION = 1
+    RISK_COMMUNICATION_AND_COMMUNITY_ENGAGEMENT_AND_ACCOUNTABILITY = 2
+    PROTECTION_GENDER_AND_INCLUSION = 3
+    SHELTER = 4
+    PLANNING_MONITORING_EVALUATION_REPORTING_AND_INFORMATION_MANAGEMENT = 5
+    NATIONAL_SOCIETY_DEVELOPMENT = 6
+    LOGISTICS_AND_INFORMATION_TECHNOLOGY = 7
+    HUMAN_RESOURCES_AND_DUTY_OF_CARE = 8
 
 
 class Statuses(IntEnum):
